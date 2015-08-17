@@ -1,0 +1,86 @@
+{
+  "name": "dom-event-special",
+  "version": "0.1.0",
+  "description": "Special events hooks ala `jQuery`",
+  "main": "index.js",
+  "scripts": {
+    "beautify": "esbeautifier 'index.js' 'specs/**/*.js'",
+    "beautify-check": "esbeautifier -k 'index.js' 'specs/**/*.js'",
+    "bundly:test": "bundly -c configs/bundly.js --target=tests,tests-includes",
+    "bundly:demo": "bundly -c configs/bundly.js --target=demo",
+    "build:watch": "shell-exec 'serve-this 8002' 'npm run bundly:demo -- --watch'",
+    "build": "shell-exec 'serve-this 8002' 'npm run bundly:demo'",
+    "karma:watch": "karma start configs/karma.conf.js",
+    "karma:delayed": "sleep 2s && karma start configs/karma.conf.js --single-run",
+    "test:watch": "shell-exec 'npm run bundly:test -- --watch' 'npm run karma:watch'",
+    "test": "shell-exec 'npm run bundly:test' 'npm run karma:delayed'",
+    "eslint": "eslinter 'index.js' 'specs/**/*.js'",
+    "lint": "npm run beautify && npm run eslint && npm test",
+    "verify": "npm run beautify-check && npm run eslint && npm test",
+    "install-hooks": "prepush install && changelogx install-hook && precommit install",
+    "changelog": "changelogx -f markdown -o ./changelog.md",
+    "do-changelog": "npm run changelog && git add ./changelog.md && git commit -m 'DOC: Generate changelog' --no-verify",
+    "pre-v": "npm run verify",
+    "post-v": "npm run do-changelog && git push --no-verify && git push --tags --no-verify",
+    "bump-major": "npm run pre-v && npm version major -m 'BLD: Release v%s' && npm run post-v",
+    "bump-minor": "npm run pre-v && npm version minor -m 'BLD: Release v%s' && npm run post-v",
+    "bump-patch": "npm run pre-v && npm version patch -m 'BLD: Release v%s' && npm run post-v"
+  },
+  "keywords": [
+    "events",
+    "dom",
+    "special events",
+    "jquery special events"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/royriojas/dom-event-special"
+  },
+  "license": "MIT",
+  "author": "Roy Riojas (http://royriojas.com)",
+  "prepush": [
+    "npm run verify"
+  ],
+  "precommit": {
+    "tasks": [
+      "npm run verify"
+    ],
+    "onDirtyState": "stash"
+  },
+  "dependencies": {
+    "bundly": "^3.0.3",
+    "closest": "0.0.1",
+    "dispatch-event": "^1.0.0",
+    "dom-event": "0.0.5",
+    "extend": "^3.0.0",
+    "shell-executor": "^0.3.2"
+  },
+  "devDependencies": {
+    "bundly": "^3.0.2",
+    "chai": "^3.2.0",
+    "changelogx": "^1.0.18",
+    "clix-logger": "^0.1.3",
+    "dom-query": "^1.0.1",
+    "domquery": "^1.2.0",
+    "esbeautifier": "^4.2.9",
+    "eslinter": "^2.3.2",
+    "istanbul": "^0.3.17",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-coverage": "^0.5.0",
+    "karma-junit-reporter": "^0.3.3",
+    "karma-mocha": "^0.2.0",
+    "karma-osx-reporter": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-spec-reporter": "0.0.20",
+    "mocha": "^2.2.5",
+    "mocha-runner": "^1.1.1",
+    "phantom-ownpropertynames": "^1.0.0",
+    "phantomjs": "^1.9.18",
+    "phantomjs-polyfill": "0.0.1",
+    "precommit": "^1.1.5",
+    "prepush": "^3.1.4",
+    "shell-executor": "^0.3.1",
+    "watch-spawn": "^1.0.5"
+  }
+}
