@@ -50,15 +50,13 @@
     "onDirtyState": "stash"
   },
   "dependencies": {
-    "bundly": "^3.0.3",
-    "closest": "0.0.1",
+    "component-closest": "^1.0.0",
     "dispatch-event": "^1.0.0",
     "dom-event": "0.0.5",
-    "extend": "^3.0.0",
-    "shell-executor": "^0.3.2"
+    "extend": "^3.0.0"
   },
   "devDependencies": {
-    "bundly": "^3.0.2",
+    "bundly": "^3.0.3",
     "chai": "^3.2.0",
     "changelogx": "^1.0.18",
     "clix-logger": "^0.1.3",
@@ -82,7 +80,7 @@
     "phantomjs-polyfill": "0.0.1",
     "precommit": "^1.1.5",
     "prepush": "^3.1.4",
-    "shell-executor": "^0.3.1",
+    "shell-executor": "^0.3.2",
     "watch-spawn": "^1.0.5"
   }
 }
