@@ -1,6 +1,6 @@
 {
   "name": "dom-event-special",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Special events hooks ala `jQuery`",
   "main": "index.js",
   "scripts": {
