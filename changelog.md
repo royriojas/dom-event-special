@@ -1,5 +1,10 @@
 
 # dom-event-special - Changelog
+## v0.1.4
+- **Bug Fixes**
+  - test on 0.12.0 only - [824f98b]( https://github.com/royriojas/dom-event-special/commit/824f98b ), [royriojas](https://github.com/royriojas), 17/08/2015 03:54:39
+
+    
 ## v0.1.3
 - **Bug Fixes**
   - optimize tests scripts - [afb530e]( https://github.com/royriojas/dom-event-special/commit/afb530e ), [royriojas](https://github.com/royriojas), 17/08/2015 03:47:34
