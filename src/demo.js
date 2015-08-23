@@ -1,5 +1,5 @@
 var evt = require( '../index' );
-var closest = require( 'closest' );
+var closest = require( 'component-closest' );
 var query = require( 'dom-query' );
 
 // register an event lifecycle hooks similar to
@@ -20,7 +20,7 @@ evt.register( 'click', {
 
     descriptor.callback = function ( e ) {
       // if any parent is disabled, then this event should not be fired
-      if ( closest( e.target, '[disabled]', true ) ) {
+      if ( closest( e.target, '[disabled]' ) ) {
         return;
       }
       // call the original handler!
