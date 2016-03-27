@@ -1,6 +1,6 @@
 describe( 'dom-event-special', function () {
   var evt = require( '../' );
-  var dom = require( 'domquery' );
+  var $ = require( 'jquery' );
   var query = require( 'dom-query' );
 
   it( 'should bind a delegated event', function () {
@@ -8,7 +8,7 @@ describe( 'dom-event-special', function () {
 
     var tpl = require( './box.tpl' ).render();
 
-    dom( tpl ).insert( '#fixtures' );
+    $( tpl ).appendTo( '#fixtures' );
 
     var spyEvent = me.sandbox.spy();
 
@@ -25,7 +25,7 @@ describe( 'dom-event-special', function () {
 
     var tpl = require( './box.tpl' ).render();
 
-    dom( tpl ).insert( '#fixtures' );
+    $( tpl ).appendTo( '#fixtures' );
 
     var spyEvent = me.sandbox.spy();
 

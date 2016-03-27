@@ -4,7 +4,7 @@ var cache = require( './lib/event-cache' );
 var getEventCache = cache.getCache.bind( cache );
 var dispatchEvent = require( './lib/dispatch-event' );
 
-var domEvent = require( 'dom-event' );
+var domEvent = require( './lib/dom-event' );
 var wrapCallback = require( './lib/wrap-callback' );
 
 module.exports = {

@@ -16,18 +16,17 @@ global.it = function ( name, callback ) {
   oldit && oldit.call( null, counter + '. ' + name, callback );
 };
 
-var dom = require( 'domquery' );
+var $ = require('jquery');
 
 beforeEach( function ( done ) {
   var me = this;
-  dom( '<div id="fixtures"></div>' ).insert( 'body' );
-  me.$fixtures = dom( '#fixtures' );
+  me.$fixtures = $( '<div id="fixtures"></div>' ).appendTo( 'body' );
   done && done();
 } );
 
 afterEach( function ( done ) {
   var me = this;
-  dom( 'body' ).remove( '#fixtures' );
+  me.$fixtures && me.$fixtures.remove();
   me.$fixtures = null;
   done && done();
 } );

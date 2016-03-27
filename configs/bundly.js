@@ -1,5 +1,11 @@
 module.exports = function () {
   return {
+    options: {
+      preBundleCB: function ( b ) {
+        b.transform( 'require-arr' );
+        b.transform( 'dot-ify');
+      }
+    },
     'demo': {
       src: 'src/demo.js',
       dest: 'dist/demo.js'
